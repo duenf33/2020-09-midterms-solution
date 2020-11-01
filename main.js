@@ -35,7 +35,6 @@ const isValidPasswordAlt2 = function(password) {
   return !password.includes('.') && !password.includes(' ') && password.length >= 12;
 }
 
-
 // using helper function
 const isItC = function(grade) {
   return grade >= 70 && grade <= 79;
@@ -52,6 +51,7 @@ const onlyCsAlt = function(grades) {
   })
 }
 
+// manual looping version
 const countBs = function(grades) {
   let count = 0;
   for (const grade of grades) {
@@ -61,6 +61,40 @@ const countBs = function(grades) {
   }
 
   return count;
+}
+
+// filter and .length version
+const countBsAlt1 = function(grades) {
+  const Bs = grades.filter(function(grade) {
+    return grade >= 80 && grade <= 89;
+  })
+
+  return Bs.length;
+}
+
+// more succinct version of above
+const countBsAlt2 = function(grades) {
+  return grades.filter(function(grade) {
+    return grade >= 80 && grade <= 89;
+  }).length;
+}
+
+// reduce version
+const countBsAlt3 = function(grades) {
+  return grades.reduce(function(count, grade) {
+    if (grade >= 80 && grade <= 89) {
+      return count + 1;
+    }
+
+    return count;
+  }, 0);
+}
+
+// reduce and ternary version
+const countBsAlt4 = function(grades) {
+  return grades.reduce(function(count, grade) {
+    return grade >= 80 && grade <= 89 ? count + 1 : count;
+  }, 0);
 }
 
   // looping backwards version
