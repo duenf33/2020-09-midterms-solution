@@ -24,3 +24,25 @@ isValidPassword('justlongenuf') // -> true`
 ##### Hints
 
 Try using `.includes` instead of a loop.
+
+
+### onlyCs
+
+##### Summary
+
+Returns only the grades that are between 70 and 79 (inclusive) in the given array.
+
+
+##### Examples
+
+``` javascript
+justTheCs([40, 73, 77, 100, 70, 79, 83, 93, 71, 76, 0])
+// -> [73, 77, 70, 79, 71, 76]
+```
+
+
+##### Hints
+
+* This is a filter operation.
+* You can do that with a named helper function, an anonymous helper function, an anonymous arrow helper function... or a manual loop. Just solve the problem!
+
