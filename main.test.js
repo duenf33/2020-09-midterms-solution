@@ -15,14 +15,14 @@ describe('isValidPassword', () => {
     expect(isValidPassword('bad password')).toBe(false);
   })
 
-  it(`returns false if the given string's length is less than 12 characters`, () => {
-    expect(isValidPassword('shorty')).toBe(false);
-    expect(isValidPassword('ritemoarpls')).toBe(false);
-  })
-
   it(`returns false if the given string has a "." in it`, () => {
     expect(isValidPassword('colin.jaffe@codeimmersives.com')).toBe(false);
     expect(isValidPassword('Inconceivable.')).toBe(false);
+  })
+
+  it(`returns false if the given string's length is less than 12 characters`, () => {
+    expect(isValidPassword('shorty')).toBe(false);
+    expect(isValidPassword('ritemoarpls')).toBe(false);
   })
 
   it(`returns true otherwise`, () => {
