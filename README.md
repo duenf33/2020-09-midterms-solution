@@ -44,5 +44,5 @@ onlyCs([40, 73, 77, 100, 70, 79, 83, 93, 71, 76, 0])
 ##### Hints
 
 * This is a filter operation.
-* You can do that with a named helper function, an anonymous helper function, an anonymous arrow helper function... or a manual loop. Just solve the problem!
+* You can filter with a named helper function, an anonymous helper function, an anonymous arrow helper function... or a manual loop. Just solve the problem!
 
