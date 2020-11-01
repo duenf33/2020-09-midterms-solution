@@ -21,8 +21,17 @@ const isValidPassword = function(password) {
   return true;
 }
 
-// using a compound boolean and .includes
-const isValidPasswordAlt = function(password) {
+// using a compound boolean with ifs and .includes
+const isValidPasswordAlt1 = function(password) {
+  if (password.includes('.') || password.includes(' ') || password.length < 12) {
+    return false;
+  }
+
+  return true;
+}
+
+// using a raw compound boolean and .includes
+const isValidPasswordAlt2 = function(password) {
   return !password.includes('.') && !password.includes(' ') && password.length >= 12;
 }
 
