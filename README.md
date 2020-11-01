@@ -17,7 +17,6 @@ isValidPassword('colin.jaffe@codeimmersives.com') // -> false
 isValidPassword('Inconceivable.') // -> false
 isValidPassword('shorty') // -> false
 isValidPassword('ritemoarpls') // -> false
-isValidPassword('ritemoarpls') // -> false
 isValidPassword('longpasswordwithnospacesorperiods') // -> true
 isValidPassword('justlongenuf') // -> true`
 ```
