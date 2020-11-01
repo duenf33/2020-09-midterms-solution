@@ -36,7 +36,7 @@ Returns only the grades that are between 70 and 79 (inclusive) in the given arra
 ##### Examples
 
 ``` javascript
-justTheCs([40, 73, 77, 100, 70, 79, 83, 93, 71, 76, 0])
+onlyCs([40, 73, 77, 100, 70, 79, 83, 93, 71, 76, 0])
 // -> [73, 77, 70, 79, 71, 76]
 ```
 
