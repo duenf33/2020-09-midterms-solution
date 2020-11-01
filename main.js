@@ -235,10 +235,6 @@ if (typeof isValidPassword === 'undefined') {
   isValidPassword = undefined;
 }
 
-if (typeof makeHalfSquares === 'undefined') {
-  makeHalfSquares = undefined;
-}
-
 if (typeof onlyCs === 'undefined') {
   onlyCs = undefined;
 }
