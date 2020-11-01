@@ -81,8 +81,8 @@ Returns the *last* appearance of a period, question mark, or exclamation point i
 ##### Examples
 
 ``` javascript
-lastIndexOfPunctuation(`what even? I can't do this. not today`) //-> 26
 lastIndexOfPunctuation(`no. I do not!`) //-> 12
+lastIndexOfPunctuation(`what even? I can't do this. not today`) //-> 26
 lastIndexOfPunctuation(`I have no punc and I cannot lie`) //-> -1
 ```
 
