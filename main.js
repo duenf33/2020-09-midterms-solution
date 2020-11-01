@@ -63,6 +63,59 @@ const countBs = function(grades) {
   return count;
 }
 
+  // looping backwards version
+const lastIndexOfPunctuation = function(str) {
+  for (let i = str.length - 1; i >= 0; i--) {
+    const char = str[i];
+    if (char === '.' || char === '?' || char === '!') {
+      return i;
+    }
+  }
+
+  // we made it through the whole string without encountering a space and returning the index (which would've ended this function)
+  return -1;
+}
+
+// looping forwards version, updating index as we go:
+const lastIndexOfPunctuationAlt1 = function(str) {
+  // default to -1 in case we don't find one
+  let lastIndex = -1;
+  for (let i = 0; i < str.length; i++) {
+    const char = str[i];
+    if (char === '.' || char === '?' || char === '!') {
+      lastIndex = i;
+    }
+  }
+
+  return lastIndex;
+}
+
+// .lastIndexOf version
+const lastIndexOfPunctuationAlt2 = function(str) {
+  const lastPeriod = str.lastIndexOf('.');
+  const lastQuestionMark = str.lastIndexOf('?');
+  const lastExclamationMark = str.lastIndexOf('!');
+  let index = lastPeriod;
+  if (lastQuestionMark > index) {
+    index = lastQuestionMark;
+  }
+
+  if (lastExclamationMark > index) {
+    index = lastExclamationMark;
+  }
+
+  return index;
+}
+
+// .lastIndexOf and Math.max version
+const lastIndexOfPunctuationAlt3 = function(str) {
+  const lastPeriod = str.lastIndexOf('.');
+  const lastQuestionMark = str.lastIndexOf('?');
+  const lastExclamationMark = str.lastIndexOf('!');
+
+  return Math.max(lastPeriod, lastQuestionMark, lastExclamationMark);
+}
+
 // string building version with very long boolean
 const deleteMiddleLetters = function(str) {
   let result = '';
@@ -133,59 +186,6 @@ const deleteMiddleLettersAlt4 = function(str) {
   return middleLettersGoneArr.join('')
 }
 
-const lastIndexOfPunctuation = function(str) {
-  // looping backwards version
-  for (let i = str.length - 1; i >= 0; i--) {
-    const char = str[i];
-    if (char === '.' || char === '?' || char === '!') {
-      return i;
-    }
-  }
-
-  // we made it through the whole string without encountering a space and returning the index (which would've ended this function)
-  return -1;
-}
-
-// looping forwards version, updating index as we go:
-const lastIndexOfPunctuationAlt1 = function(str) {
-  // default to -1 in case we don't find one
-  let lastIndex = -1;
-  for (let i = 0; i < str.length; i++) {
-    const char = str[i];
-    if (char === '.' || char === '?' || char === '!') {
-      lastIndex = i;
-    }
-  }
-
-  return lastIndex;
-}
-// 
-// .lastIndexOf version
-const lastIndexOfPunctuationAlt2 = function(str) {
-  const lastPeriod = str.lastIndexOf('.');
-  const lastQuestionMark = str.lastIndexOf('?');
-  const lastExclamationMark = str.lastIndexOf('!');
-  let index = lastPeriod;
-  if (lastQuestionMark > index) {
-    index = lastQuestionMark;
-  }
-
-  if (lastExclamationMark > index) {
-    index = lastExclamationMark;
-  }
-
-  return index;
-}
-
-// .lastIndexOf and Math.max version
-const lastIndexOfPunctuationAlt3 = function(str) {
-  const lastPeriod = str.lastIndexOf('.');
-  const lastQuestionMark = str.lastIndexOf('?');
-  const lastExclamationMark = str.lastIndexOf('!');
-
-  return Math.max(lastPeriod, lastQuestionMark, lastExclamationMark);
-}
-
 const getCenturies = function(years) {
   return years.map(function(year) {
     let centuryNumber = year + 100;
@@ -247,12 +247,12 @@ if (typeof countBs === 'undefined') {
   countBs = undefined;
 }
 
-if (typeof deleteMiddleLetters === 'undefined') {
-  deleteMiddleLetters = undefined;
-}
-
 if (typeof lastIndexOfPunctuation === 'undefined') {
   lastIndexOfPunctuation = undefined;
+}
+
+if (typeof deleteMiddleLetters === 'undefined') {
+  deleteMiddleLetters = undefined;
 }
 
 if (typeof getCenturies === 'undefined') {
@@ -265,7 +265,7 @@ module.exports = {
   isValidPassword,
   onlyCs,
   countBs,
-  deleteMiddleLetters,
   lastIndexOfPunctuation,
+  deleteMiddleLetters,
   getCenturies,
 }

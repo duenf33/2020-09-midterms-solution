@@ -2,8 +2,8 @@ const {
   isValidPassword, // tweaked to be harder
   onlyCs, // new
   countBs, // slightly tweaked
-  deleteMiddleLetters, // same
   lastIndexOfPunctuation, // tweaked to be harder
+  deleteMiddleLetters, // same
   getCenturies,
 } = require('./main.js')
 
@@ -89,26 +89,6 @@ describe('countBs', () => {
   })
 })
 
-describe('deleteMiddleLetters', () => {
-  it(`deletes the middle letter from a word, returning the resulting string`, () => {
-    const str1 = 'hello';
-    const result1 = 'helo';
-    const str2 = 'goodbye';
-    const result2 = 'goobye';
-    expect(deleteMiddleLetters(str1)).toBe(result1);
-    expect(deleteMiddleLetters(str2)).toBe(result2);
-  })
-
-  it(`deletes the middle two letters from a string with an even number of characters`, () => {
-    const str1 = 'yessir';
-    const result1 = 'yeir';
-    const str2 = 'oh hello there';
-    const result2 = 'oh hel there';
-    expect(deleteMiddleLetters(str1)).toBe(result1);
-    expect(deleteMiddleLetters(str2)).toBe(result2);
-  })
-})
-
 describe('lastIndexOfPunctuation', () => {
   it(`returns the last index of a period`, () => {
     const str1 = `Oh yeah.`;
@@ -164,7 +144,27 @@ describe('lastIndexOfPunctuation', () => {
     expect(lastIndexOfPunctuation(noSpace1)).toBe(-1)
     expect(lastIndexOfPunctuation(noSpace2)).toBe(-1)
   })
-});
+})
+
+describe('deleteMiddleLetters', () => {
+  it(`deletes the middle letter from a word, returning the resulting string`, () => {
+    const str1 = 'hello';
+    const result1 = 'helo';
+    const str2 = 'goodbye';
+    const result2 = 'goobye';
+    expect(deleteMiddleLetters(str1)).toBe(result1);
+    expect(deleteMiddleLetters(str2)).toBe(result2);
+  })
+
+  it(`deletes the middle two letters from a string with an even number of characters`, () => {
+    const str1 = 'yessir';
+    const result1 = 'yeir';
+    const str2 = 'oh hello there';
+    const result2 = 'oh hel there';
+    expect(deleteMiddleLetters(str1)).toBe(result1);
+    expect(deleteMiddleLetters(str2)).toBe(result2);
+  })
+})
 
 describe('getCenturies', () => {
   it(`returns century strings for the 11th-20th centuries`, () => {
