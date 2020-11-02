@@ -157,12 +157,15 @@ describe('deleteMiddleLetters', () => {
   })
 
   it(`deletes the middle two letters from a string with an even number of characters`, () => {
-    const str1 = 'yessir';
-    const result1 = 'yeir';
-    const str2 = 'oh hello there';
-    const result2 = 'oh hel there';
+    const str1 = 'four';
+    const result1 = 'fr';
+    const str2 = 'yessir';
+    const result2 = 'yeir';
+    const str3 = 'oh hello there';
+    const result3 = 'oh hel there';
     expect(deleteMiddleLetters(str1)).toBe(result1);
     expect(deleteMiddleLetters(str2)).toBe(result2);
+    expect(deleteMiddleLetters(str3)).toBe(result3);
   })
 })
 
