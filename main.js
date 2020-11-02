@@ -210,7 +210,20 @@ const deleteMiddleLettersAlt3 = function(str) {
   return str.slice(0, middle - 1) + str.slice(middle + 1);
 }
 
-// convert to array and filter version
+// convert to array and filter version using an array and two variables to check if we're at the middle.
+// The -1 for middleIndex2 if the string has an odd number of characters is in order to pick an index that our current `i` can't be, since we only have one middle index with odd character counts.
+const deleteMiddleLettersAlt4 = function(str) {
+  const middleIndex1 = str.length % 2 === 0 ? str.length / 2 - 1 : Math.floor(str.length / 2);
+  const middleIndex2 = str.length % 2 === 0 ? str.length / 2 : -1;
+  const middleLettersGoneArr = str.split('').filter(function(char, i) {
+    return i !== middleIndex1 && i !== middleIndex2;
+  });
+
+  return middleLettersGoneArr.join('')
+}
+
+// convert to array and filter version using an array and includes to check indices
+// The one-element array if the string has an odd number of characters is, again, since we only have one middle index with odd character counts.
 const deleteMiddleLettersAlt4 = function(str) {
   const middleIndices = str.length % 2 === 0 ? [str.length / 2 - 1, str.length / 2] : [Math.floor(str.length / 2)];
   const middleLettersGoneArr = str.split('').filter(function(char, i) {
