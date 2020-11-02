@@ -224,7 +224,7 @@ const deleteMiddleLettersAlt4 = function(str) {
 
 // convert to array and filter version using an array and includes to check indices
 // The one-element array if the string has an odd number of characters is, again, since we only have one middle index with odd character counts.
-const deleteMiddleLettersAlt4 = function(str) {
+const deleteMiddleLettersAlt5 = function(str) {
   const middleIndices = str.length % 2 === 0 ? [str.length / 2 - 1, str.length / 2] : [Math.floor(str.length / 2)];
   const middleLettersGoneArr = str.split('').filter(function(char, i) {
     return middleIndices.includes(i) === false;
@@ -233,9 +233,31 @@ const deleteMiddleLettersAlt4 = function(str) {
   return middleLettersGoneArr.join('')
 }
 
+// Using a manual loop.
 const getCenturies = function(years) {
+  const centuryStrings = [];
+  for (const year of years) {
+    const centuryNumber = year + 100;
+    let suffix = 'th';
+    if (centuryNumber >= 300 && centuryNumber < 400) {
+      suffix = 'rd';
+    } else if (centuryNumber >= 200 && centuryNumber < 300) {
+      suffix = 'nd';
+    } else if (centuryNumber >= 100 && centuryNumber < 200 || centuryNumber >= 2100) {
+      suffix = 'st';
+    }
+
+    const centuryString = centuryNumber.toString().slice(0, -2) + suffix;
+    centuryStrings.push(centuryString);
+  }
+
+  return centuryStrings;
+}
+
+// Using .map.
+const getCenturiesAlt1 = function(years) {
   return years.map(function(year) {
-    let centuryNumber = year + 100;
+    const centuryNumber = year + 100;
     let suffix = 'th';
     if (centuryNumber >= 300 && centuryNumber < 400) {
       suffix = 'rd';
@@ -249,10 +271,10 @@ const getCenturies = function(years) {
   })
 }
 
-// using switch
-const getCenturiesAlt = function(years) {
+// using .map and switch
+const getCenturiesAlt2 = function(years) {
   return years.map(function(year) {
-    let centuryNumber = (year + 100).toString().slice(0, -2);
+    const centuryNumber = (year + 100).toString().slice(0, -2);
     let suffix = 'th';
     switch(centuryNumber) {
       case '2':
